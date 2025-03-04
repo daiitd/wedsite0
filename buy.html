@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Hàng</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #98FF98;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: #222;
+            color: aqua;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left a, .header-right a {
+            color: aqua;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        /* Main Content */
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product {
+            background: aqua;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product p {
+            margin: 10px 0;
+        }
+
+        .product input {
+            width: 60px;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .product button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .product button:hover {
+            background: red;
+        }
+
+        /* Invoice */
+        .invoice {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .invoice h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .invoice ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .invoice ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .invoice ul li button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .invoice ul li button:hover {
+            background: #c82333;
+        }
+
+        .invoice p {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left, .header-right {
+                flex-direction: column;
+                margin: 10px 0;
+            }
+
+            .header-left a, .header-right a {
+                margin: 5px 0;
+            }
+
+            .product-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html">Trang chủ</a>
+            <a href="index.html">Giới thiệu</a>
+            <a href="index1.html">Sản phẩm</a>
+            <a href="account.html">Quản trị Admin</a>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="header-right">
+            <a href="account.html">Đăng nhập</a>
+            <a href="#">Thông báo</a>
+            <a href="index1.html">Mua sắm</a>
+        </div>
+    </header>
+    <h1>Danh Sách Sản Phẩm</h1>
+    <div class="product-container">
+        <div class="product">
+            <img src="nho.jpg" alt="Sản phẩm 1">
+            <p>Nho Nhập Khẩu Thái Lan</p>
+            <p>Giá: 100.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Nho Nhập Khẩu Thái Lan', 100000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <div class="product">
+            <img src="apple.jpg" alt="Sản phẩm 2">
+            <p>Táo Mỹ</p>
+            <p>Giá: 400.000đ</p>
+            <input type="number" id="quantity2" min="1" value="1">
+            <button onclick="addToInvoice('Táo Mỹ', 400000, 'quantity2')">Đặt hàng</button>
+        </div>
+        <div class="product">
+            <img src="quyt.jpg" alt="Sản phẩm 3">
+            <p>Quýt Hàn Quốc</p>
+            <p>Giá: 250.000 VNĐ</p>
+            <input type="number" id="quantity3" min="1" value="1">
+            <button onclick="addToInvoice('Quýt Hàn Quốc', 250000, 'quantity3')">Đặt hàng</button>
+        </div>
+        <div class="product">
+            <img src="saurieng.jpg" alt="Sản phẩm 4">
+            <p>Sầu Riêng Trung Quốc</p>
+            <p>Giá: 300.000 VNĐ</p>
+            <input type="number" id="quantity4" min="1" value="1">
+            <button onclick="addToInvoice('Sầu Riêng Trung Quốc', 300000, 'quantity4')">Đặt hàng</button>
+        </div>
+        <div class="product">
+            <img src="kemdau.jpeg" alt="Sản phẩm 5">
+            <p>Kem Dâu</p>
+            <p>Giá: 59.000 VNĐ</p>
+            <input type="number" id="quantity5" min="1" value="1">
+            <button onclick="addToInvoice('Kem Dâu', 59000, 'quantity5')">Đặt hàng</button>
+        </div>
+        <div class="product">
+            <img src="kemdua.jpg" alt="Sản phẩm 6">
+            <p>Kem Dừa</p>
+            <p>Giá: 49.000 VNĐ</p>
+            <input type="number" id="quantity6" min="1" value="1">
+            <button onclick="addToInvoice('Kem Dừa', 49000, 'quantity6')">Đặt hàng</button>
+        </div>
+        <div class="product">
+            <img src="kemkhoai.jpg" alt="Sản phẩm 7">
+            <p>Kem Khoai Môn</p>
+            <p>Giá: 33.000 VNĐ</p>
+            <input type="number" id="quantity7" min="1" value="1">
+            <button onclick="addToInvoice('Kem Khoai Môn', 33000, 'quantity7')">Đặt hàng</button>
+        </div>
+        <div class="product">
+            <img src="tradao.jpg" alt="Sản phẩm 8">
+            <p>Trà Đào</p>
+            <p>Giá: 25.000 VNĐ</p>
+            <input type="number" id="quantity8" min="1" value="1">
+            <button onclick="addToInvoice('Trà Đào', 25000, 'quantity8')">Đặt hàng</button>
+        </div>
+    </div>
+
+    <div class="invoice">
+        <h2>Hóa Đơn</h2>
+        <ul id="invoice-list"></ul>
+        <p><strong>Tổng tiền:</strong> <span id="total-price">0</span>đ</p>
+    </div>
+
+    <script>
+        let totalPrice = 0;
+        function addToInvoice(name, price, quantityId) {
+            let quantity = document.getElementById(quantityId).value;
+            let invoiceList = document.getElementById("invoice-list");
+            let listItem = document.createElement("li");
+            let itemId = Date.now();
+            listItem.setAttribute("id", itemId);
+            listItem.innerHTML = `${name} - Số lượng: ${quantity} - Giá: ${price * quantity}đ <button class='remove-button' onclick='removeFromInvoice(${itemId}, ${price * quantity})'>Xóa</button>`;
+            invoiceList.appendChild(listItem);
+            totalPrice += price * quantity;
+            document.getElementById("total-price").textContent = totalPrice;
+        }
+
+        function removeFromInvoice(itemId, itemPrice) {
+            let item = document.getElementById(itemId);
+            if (item) {
+                item.remove();
+                totalPrice -= itemPrice;
+                document.getElementById("total-price").textContent = totalPrice;
+            }
+        }
+    </script>
+</body>
+</html>

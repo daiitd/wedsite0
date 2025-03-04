@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Đơn Hàng</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        img {
+            border-radius: 50%;
+        }
+
+        /* Header */
+        .header {
+            background: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .header ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .header ul li {
+            margin: 5px 0;
+        }
+
+        .header ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 100%;
+            max-width: 250px;
+            background: red;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px 0;
+            color: yellow;
+        }
+
+        .sidebar ul li a {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        .total-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            padding: 20px;
+            background: white;
+        }
+
+        .content h1 {
+            background: red;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin: -20px -20px 20px -20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: black;
+            color: white;
+        }
+
+        td img {
+            width: 100px;
+            height: auto;
+            vertical-align: middle;
+            border-radius: 8px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .header ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-width: none;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            td img {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul>
+            <li><a href="index.html">Trang Chủ</a></li>
+            <li><a href="index.html">Giới Thiệu</a></li>
+            <li><a href="index1.html">Sản Phẩm</a></li>
+            <li><a href="contact.html">Liên Hệ</a></li>
+            <li><a href="account.html">Đăng Nhập</a></li>
+            <li><a href="index1.html">Mua Sắm</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="sidebar">
+            <img src="anh.PNG" alt="Admin" class="admin-img" width="100%">
+            <h2>Welcome P.Đại<br>Admin</h2>
+            <ul>
+                <li><a href="index.html">Quản lý giới thiệu</a></li>
+                <li><a href="index1.html">Quản lý đơn hàng</a></li>
+                <li><a href="buy.html">Quản lý sản phẩm</a></li>
+                <li><a href="index.html">Quản lý trang chủ</a></li>
+            </ul>
+            <h3>Tổng thành tiền</h3>
+            <p class="total-price">1.164.000 VNĐ</p>
+        </div>
+        <div class="content">
+            <h1>Các đơn đặt hàng trong tháng</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên hàng hóa</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="kemhau.png" alt="Kem Dưa Hấu"> Kem Dưa Hấu</td>
+                        <td>x2</td>
+                        <td>59.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td><img src="tramancau.jpg" alt="Trà Mảng Cầu"> Trà Mảng Cầu</td>
+                        <td>x2</td>
+                        <td>33.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td><img src="quyt.jpg" alt="Quýt Hàn Quốc"> Quýt Hàn Quốc</td>
+                        <td>x1</td>
+                        <td>565.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td><img src="saurieng.jpg" alt="Sầu Riêng Trung Quốc"> Sầu Riêng Trung Quốc</td>
+                        <td>x1</td>
+                        <td>360.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td><img src="travai.jpg" alt="Trà Vải"> Trà Vải</td>
+                        <td>x3</td>
+                        <td>33.000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td><img src="kemvani.jpg" alt="Kem Vani"> Kem Vani</td>
+                        <td>x1</td>
+                        <td>22.000 VNĐ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

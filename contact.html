@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Liên Hệ</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #98FF98;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: #222;
+            color: aqua;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left a, .header-right a {
+            color: aqua;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 300px;
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 5px;
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .facebook { background: #3b5998; }
+        .instagram { background: #e4405f; }
+        .github { background: #333; }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left, .header-right {
+                flex-direction: column;
+                margin: 10px 0;
+            }
+
+            .header-left a, .header-right a {
+                margin: 5px 0;
+            }
+
+            .container {
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html">Trang chủ</a>
+            <a href="index.html">Giới thiệu</a>
+            <a href="index1.html">Sản phẩm</a>
+            <a href="account.html">Quản trị Admin</a>
+            <a href="#">Liên hệ</a>
+        </div>
+        <div class="header-right">
+            <a href="account.html">Đăng nhập</a>
+            <a href="#">Thông báo</a>
+            <a href="index1.html">Mua sắm</a>
+        </div>
+    </header>
+    <div class="container">
+        <img src="anh.PNG" alt="Ảnh đại diện" class="profile-pic">
+        <div class="name">Nguyễn Phương Đại</div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=100071108987530" class="facebook" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/nguy.enphuongdai/" class="instagram" target="_blank">Instagram</a>
+            <a href="https://github.com/daiitd/wedsitesbydai" class="github" target="_blank">GitHub</a>
+        </div>
+    </div>
+</body>
+</html>
