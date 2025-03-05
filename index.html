@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Bán Hàng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Trang web bán thực phẩm</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
     <style>
         /* Reset CSS */
         * {
@@ -14,17 +15,17 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: yellowgreen;
+            background-color: skyblue;
         }
 
         /* Header */
         header {
             background: #222;
-            color: aqua;
-            padding: 15px;
+            color: white;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,99 +43,75 @@
             text-decoration: none;
             margin: 0 10px;
             font-size: 14px;
+            white-space: nowrap; /* Ngăn chặn xuống dòng */
         }
 
-        .header-right img {
-            width: 20px;
-            height: 20px;
-            margin-left: 5px;
-        }
-
-        .search-box {
-            padding: 5px;
-            width: 200px;
-            border-radius: 5px;
-            border: 1px solid #f0b45b;
-        }
-
-        /* Container */
-        .container {
-            width: 90%;
-            margin: auto;
-            background: paleturquoise;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .hero img {
-            width: 150px;
-            height: auto;
-        }
-
-        .buttons {
+        /* Navigation */
+        nav ul {
+            list-style: none;
             display: flex;
             justify-content: center;
+            padding: 0;
             flex-wrap: wrap;
+            background: #333;
+            margin: 0;
         }
 
-        .buttons button {
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+        nav ul li {
             margin: 10px;
-            border-radius: 5px;
-            color: rgb(204, 235, 132);
-            font-size: 16px;
-            background-color: #333;
-            transition: all 0.3s ease-in-out;
-            position: relative;
+            cursor: pointer;
+            color: white;
+            white-space: nowrap; /* Ngăn chặn xuống dòng */
+        }
+
+        /* Banner */
+        .banner {
+            text-align: center;
+            background: lightgreen;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
         }
 
-        .buttons button:hover {
-            background-color: rgb(204, 235, 132);
-            color: #333;
-            box-shadow: 0 0 10px rgb(204, 235, 132);
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .buttons button:active {
-            transform: scale(0.95);
-            box-shadow: 0 0 5px rgb(204, 235, 132);
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
         }
 
-        .buttons button::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(253, 19, 19, 0.5);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.4s, height 0.4s;
+        .categories button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            white-space: nowrap; /* Ngăn chặn xuống dòng */
         }
 
-        .buttons button:hover::before {
-            width: 300%;
-            height: 300%;
+        .categories button:hover {
+            background: #218838;
         }
 
-        .btn-primary { background: #ff6f00; }
-        .btn-secondary { background: #0277bd; }
-        .btn-tertiary { background: #2e7d32; }
-
-        /* Products Section */
+        /* Products */
         .products {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
         }
 
         .product {
@@ -149,8 +126,9 @@
 
         .product img {
             width: 100%;
-            border-radius: 5px;
-            height: auto;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .product h3 {
@@ -205,37 +183,37 @@
             transform: scale(0.95);
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            color: aqua;
-            margin-top: 20px;
-        }
-
-        footer a {
-            color: aqua;
-            text-decoration: none;
-        }
-
         /* Responsive Design */
         @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
             .header-left, .header-right {
                 flex-direction: column;
-                align-items: center;
+                margin: 10px 0;
             }
 
             .header-left a, .header-right a {
                 margin: 5px 0;
             }
 
-            .search-box {
-                width: 100%;
-                margin: 10px 0;
+            nav ul {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .buttons button {
+            .banner {
+                height: 200px;
+            }
+
+            .categories {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .categories button {
                 width: 100%;
                 margin: 5px 0;
             }
@@ -255,7 +233,7 @@
     <header>
         <div class="header-left">
             <a href="index.html">Trang chủ</a>
-            <a href="index.html">Giới thiệu</a>
+            <a href="index1.html">Giới thiệu</a>
             <a href="index1.html">Sản phẩm</a>
             <a href="account.html">Quản trị Admin</a>
             <a href="contact.html">Liên hệ</a>
@@ -266,80 +244,83 @@
             <a href="buy.html">Mua sắm</a>
         </div>
     </header>
-    
-    <div class="container">
-        <div class="hero">
-            <img src="logo.PNG" alt="Oke Print">
-            <h2>Welcome to P.Đại IT's website.</h2>
-            <input type="text" class="search-box" placeholder="Tìm kiếm sản phẩm">
-            <p>Tìm kiếm các thương hiệu và sản phẩm chất lượng cao</p>
-            <div class="buttons">
-                <button class="btn-primary">Mua sắm</button>
-                <button class="btn-secondary">Đặt hàng</button>
-                <button class="btn-tertiary">Thêm vào giỏ hàng</button>
+  
+    <nav>
+        <ul>
+            <li>Chương Trình Thành Viên</li>
+            <li>Cẩm Nang Mua Sắm</li>
+            <li>Khuyến Mãi Gian Hàng</li>
+            <li>Tin Tức</li>
+            <li>Hệ Thống Siêu Thị</li>
+            <li>Mua Hàng Online</li>
+            <li>Giao Hàng</li>
+            <li>Tố Giác Vi Phạm</li>
+        </ul>
+    </nav>
+    <section class="banner">
+        <img src="sale.jpg" alt="Khuyến mãi lớn">
+    </section>
+    <section class="categories">
+        <button>Trái Cây</button>
+        <button>Kem Giải Nhiệt</button>
+        <button>Trà Sữa</button>
+        <button>Bánh Kem</button>
+    </section>
+    <div class="products">
+        <div class="product">
+            <img src="case1.jpg" alt="Bánh Kem Dâu">
+            <h3>Bánh Kem Dâu</h3>
+            <p>Giá: 559.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
             </div>
         </div>
-        
-        <div class="products">
-            <div class="product">
-                <img src="kemhau.png" alt="Kem dưa hấu">
-                <h3>Kem dưa hấu</h3>
-                <p>Giá: 59.000 VNĐ</p>
-                <div class="button-group">
-                    <a href="buy.html" class="button buy-button">Mua ngay</a>
-                    <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-            <div class="product">
-                <img src="kemdua.jpg" alt="Kem dừa">
-                <h3>Kem dừa</h3>
-                <p>Giá: 49.000 VNĐ</p>
-                <div class="button-group">
-                    <a href="buy.html" class="button buy-button">Mua ngay</a>
-                    <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-            <div class="product">
-                <img src="kemsau.jpg" alt="Kem sầu riêng">
-                <h3>Kem sầu riêng</h3>
-                <p>Giá: 39.000 VNĐ</p>
-                <div class="button-group">
-                    <a href="buy.html" class="button buy-button">Mua ngay</a>
-                    <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-            <div class="product">
-                <img src="kemdau.jpeg" alt="Kem socola">
-                <h3>Kem socola</h3>
-                <p>Giá: 33.000 VNĐ</p>
-                <div class="button-group">
-                    <a href="buy.html" class="button buy-button">Mua ngay</a>
-                    <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-            <div class="product">
-                <img src="kemkhoai.jpg" alt="Kem khoai môn">
-                <h3>Kem khoai môn</h3>
-                <p>Giá: 33.000 VNĐ</p>
-                <div class="button-group">
-                    <a href="buy.html" class="button buy-button">Mua ngay</a>
-                    <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
-                </div>
-            </div>
-            <div class="product">
-                <img src="kemvani.jpg" alt="Kem vani">
-                <h3>Kem vani</h3>
-                <p>Giá: 22.000 VNĐ</p>
-                <div class="button-group">
-                    <a href="buy.html" class="button buy-button">Mua ngay</a>
-                    <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
-                </div>
+        <div class="product">
+            <img src="case2.jpg" alt="Bánh Kem Vani">
+            <h3>Bánh Kem Vani</h3>
+            <p>Giá: 349.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
             </div>
         </div>
-    </div>
-    <footer>
-        <p>&copy; 2025 P.Đại IT. Bản quyền được bảo lưu</p>
-        <p>&copy;Thông tin wed developer <a href="https://github.com/daiitd/phuongdai-IT">phuongdaiIT.com</a></p>
-    </footer>
+        <div class="product">
+            <img src="case3.jpg" alt="Bánh Kem Hoa Quả">
+            <h3>Bánh Kem Hoa Quả</h3>
+            <p>Giá: 369.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="case6.jpg" alt="Bánh Kem Thập Cẩm">
+            <h3>Bánh Kem Thập Cẩm</h3>
+            <p>Giá: 373.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="kemcarot.jpg" alt="Kem socola">
+            <h3>Bánh Kem Carrot</h3>
+            <p>Giá: 353.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="case5.jpeg" alt="Kem socola">
+            <h3>Bánh Kem Dâu Tầm</h3>
+            <p>Giá: 333.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+    </div>  
 </body>
 </html>
