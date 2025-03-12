@@ -178,14 +178,14 @@
         <div class="header-left">
             <a href="index.html">Trang chủ</a>
             <a href="index.html">Giới thiệu</a>
-            <a href="index1.html">Sản phẩm</a>
+            <a href="message.html">Sản phẩm</a>
             <a href="account.html">Quản trị Admin</a>
             <a href="contact.html">Liên hệ</a>
         </div>
         <div class="header-right">
             <a href="account.html">Đăng nhập</a>
             <a href="#">Thông báo</a>
-            <a href="index1.html">Mua sắm</a>
+            <a href="customer_view.html">Giỏ Hàng</a>
         </div>
     </header>
     <h1>Danh Sách Sản Phẩm</h1>
@@ -193,97 +193,141 @@
         <div class="product">
             <img src="nho.jpg" alt="Nho Nhập Khẩu Thái Lan">
             <p>Nho Nhập Khẩu Thái Lan</p>
-            <p>Giá: 100.000 VNĐ</p>
-            <input type="number" id="quantity1" min="1" value="1">
-            <button onclick="addToInvoice('Nho Nhập Khẩu Thái Lan', 100000, 'quantity1')">Đặt hàng</button>
-        </div>
-        <div class="product">
-            <img src="apple.jpg" alt="Táo Mỹ">
-            <p>Táo Mỹ</p>
-            <p>Giá: 400.000đ</p>
-            <input type="number" id="quantity2" min="1" value="1">
-            <button onclick="addToInvoice('Táo Mỹ', 400000, 'quantity2')">Đặt hàng</button>
-        </div>
-        <div class="product">
-            <img src="quyt.jpg" alt="Quýt Hàn Quốc">
-            <p>Quýt Hàn Quốc</p>
             <p>Giá: 250.000 VNĐ</p>
-            <input type="number" id="quantity3" min="1" value="1">
-            <button onclick="addToInvoice('Quýt Hàn Quốc', 250000, 'quantity3')">Đặt hàng</button>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Nho Nhập Khẩu Thái Lan', 250000, 'quantity1')">Đặt hàng</button>
         </div>
         <div class="product">
-            <img src="saurieng.jpg" alt="Sầu Riêng Trung Quốc">
-            <p>Sầu Riêng Trung Quốc</p>
-            <p>Giá: 300.000 VNĐ</p>
-            <input type="number" id="quantity4" min="1" value="1">
-            <button onclick="addToInvoice('Sầu Riêng Trung Quốc', 300000, 'quantity4')">Đặt hàng</button>
+            <img src="quyt.jpg " alt="Nho Nhập Khẩu Thái Lan">
+            <p>Quýt Nhập Khẩu Hàn Quốc</p>
+            <p>Giá: 150.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Quýt Nhập Khẩu Hàn Quốc', 150000, 'quantity1')">Đặt hàng</button>
         </div>
         <div class="product">
-            <img src="kemdau.jpeg" alt="Kem Dâu">
-            <p>Kem Dâu</p>
-            <p>Giá: 59.000 VNĐ</p>
-            <input type="number" id="quantity5" min="1" value="1">
-            <button onclick="addToInvoice('Kem Dâu', 59000, 'quantity5')">Đặt hàng</button>
+            <img src="saurieng.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Sầu Riêng Việt</p>
+            <p>Giá: 220.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Sầu Riêng Việt', 220000, 'quantity1')">Đặt hàng</button>
         </div>
         <div class="product">
-            <img src="kemdua.jpg" alt="Kem Dừa">
+            <img src="apple.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Táo Mỹ Nhập Khẩu</p>
+            <p>Giá: 150.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Táo Mỹ Nhập Khẩu', 150000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="kemcarot.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Kem Carrot</p>
+            <p>Giá: 25.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Kem Carrot', 25000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="kemdua.jpg" alt="Nho Nhập Khẩu Thái Lan">
             <p>Kem Dừa</p>
-            <p>Giá: 49.000 VNĐ</p>
-            <input type="number" id="quantity6" min="1" value="1">
-            <button onclick="addToInvoice('Kem Dừa', 49000, 'quantity6')">Đặt hàng</button>
+            <p>Giá: 30.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Kem dừa', 30000, 'quantity1')">Đặt hàng</button>
         </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
         <div class="product">
-            <img src="kemkhoai.jpg" alt="Kem Khoai Môn">
+            <img src="kemsau.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Kem Sầu Riêng</p>
+            <p>Giá: 27.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Kem Sầu Riêng', 27000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="kemvani.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Kem Vani</p>
+            <p>Giá: 29.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Kem Vani', 29000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="kemkhoai.jpg" alt="Nho Nhập Khẩu Thái Lan">
             <p>Kem Khoai Môn</p>
             <p>Giá: 33.000 VNĐ</p>
-            <input type="number" id="quantity7" min="1" value="1">
-            <button onclick="addToInvoice('Kem Khoai Môn', 33000, 'quantity7')">Đặt hàng</button>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Kem Khoai Môn', 33000, 'quantity1')">Đặt hàng</button>
         </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
         <div class="product">
-            <img src="kemhau.png" alt="Kem Dưa Hấu">
-            <p>Kem Dưa Hấu</p>
-            <p>Giá: 99.000 VNĐ</p>
-            <input type="number" id="quantity8" min="1" value="1">
-            <button onclick="addToInvoice('Kem Dưa Hấu', 99000, 'quantity8')">Đặt hàng</button>
+            <img src="kemdau.jpeg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Kem Dâu</p>
+            <p>Giá: 37.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Kem Dâu', 37000, 'quantity1')">Đặt hàng</button>
         </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
         <div class="product">
-            <img src="case2.jpg" alt="Bánh Kem Vani">
-            <p>Bánh Kem Vani</p>
-            <p>Giá: 235.000 VNĐ</p>
-            <input type="number" id="quantity9" min="1" value="1">
-            <button onclick="addToInvoice('Bánh Kem Vani', 235000, 'quantity9')">Đặt hàng</button>
-        </div>
-        <div class="product">
-            <img src="case3.jpg" alt="Bánh Kem Thập Cẩm">
-            <p>Bánh Kem Thập Cẩm</p>
-            <p>Giá: 295.000 VNĐ</p>
-            <input type="number" id="quantity10" min="1" value="1">
-            <button onclick="addToInvoice('Bánh Kem Thập Cẩm', 295000, 'quantity10')">Đặt hàng</button>
-        </div>
-        <div class="product">
-            <img src="case4.jpg" alt="Bánh Kem Siro">
-            <p>Bánh Kem Siro</p>
-            <p>Giá: 259.000 VNĐ</p>
-            <input type="number" id="quantity11" min="1" value="1">
-            <button onclick="addToInvoice('Bánh Kem Siro', 259000, 'quantity11')">Đặt hàng</button>
-        </div>
-        <div class="product">
-            <img src="case5.jpeg" alt="Bánh Kem Dâu">
+            <img src="case1.jpg" alt="Nho Nhập Khẩu Thái Lan">
             <p>Bánh Kem Dâu</p>
-            <p>Giá: 255.000 VNĐ</p>
-            <input type="number" id="quantity12" min="1" value="1">
-            <button onclick="addToInvoice('Bánh Kem Dâu', 255000, 'quantity12')">Đặt hàng</button>
+            <p>Giá: 330.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Bánh Kem Dâu', 330000, 'quantity1')">Đặt hàng</button>
         </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="case2.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Bánh Kem Vani</p>
+            <p>Giá: 290.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Bánh Kem Vani', 290000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="case3.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Bánh Kem Trái Cây</p>
+            <p>Giá: 340.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Bánh Kem Trái Cây', 340000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="case4.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Bánh Kem Socola</p>
+            <p>Giá: 230.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Bánh Kem Socola', 230000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="case5.jpeg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Bánh Kem Bông</p>
+            <p>Giá: 200.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Bánh Kem Bông', 200000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
+        <div class="product">
+            <img src="case6.jpg" alt="Nho Nhập Khẩu Thái Lan">
+            <p>Bánh Kem Tầng</p>
+            <p>Giá: 270.000 VNĐ</p>
+            <input type="number" id="quantity1" min="1" value="1">
+            <button onclick="addToInvoice('Bánh Kem Tầng', 270000, 'quantity1')">Đặt hàng</button>
+        </div>
+        <!-- Thêm các sản phẩm khác tương tự -->
     </div>
 
     <div class="invoice">
         <h2>Hóa Đơn</h2>
         <ul id="invoice-list"></ul>
         <p><strong>Tổng tiền:</strong> <span id="total-price">0</span>đ</p>
+        <button onclick="goToCustomerInfo()">Đặt hàng</button>
     </div>
 
     <script>
         let totalPrice = 0;
+        let invoiceItems = [];
+
         function addToInvoice(name, price, quantityId) {
             let quantity = document.getElementById(quantityId).value;
             let invoiceList = document.getElementById("invoice-list");
@@ -294,6 +338,8 @@
             invoiceList.appendChild(listItem);
             totalPrice += price * quantity;
             document.getElementById("total-price").textContent = totalPrice;
+
+            invoiceItems.push({ name, quantity, price: price * quantity });
         }
 
         function removeFromInvoice(itemId, itemPrice) {
@@ -302,7 +348,15 @@
                 item.remove();
                 totalPrice -= itemPrice;
                 document.getElementById("total-price").textContent = totalPrice;
+
+                invoiceItems = invoiceItems.filter(item => item.id !== itemId);
             }
+        }
+
+        function goToCustomerInfo() {
+            localStorage.setItem('invoiceItems', JSON.stringify(invoiceItems));
+            localStorage.setItem('totalPrice', totalPrice);
+            window.location.href = 'custom_info.html';
         }
     </script>
 </body>

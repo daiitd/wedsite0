@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Đơn Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #98FF98;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .order-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .order-info h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .order-info p {
+            margin-bottom: 10px;
+        }
+
+        .order-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .order-info ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-info ul li button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .order-info ul li button:hover {
+            background: #c82333;
+        }
+
+        .error-message {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-width: none;
+            }
+
+            .content {
+                padding: 10px;
+            }
+
+            td img {
+                width: 80px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="order-info">
+        <h2>Thông Tin Đơn Hàng</h2>
+        <ul id="order-items"></ul>
+        <div id="error-message" class="error-message"></div>
+    </div>
+
+    <script>
+        // Lấy danh sách đơn hàng từ localStorage
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+        // Hiển thị 20 đơn hàng đầu tiên
+        const orderItemsList = document.getElementById('order-items');
+        if (orders.length > 0) {
+            const first20Orders = orders.slice(0, 20); // Lấy 20 đơn hàng đầu tiên
+            first20Orders.forEach((order, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div>
+                        <p><strong>Họ và Tên:</strong> ${order.name}</p>
+                        <p><strong>Địa Chỉ:</strong> ${order.address}</p>
+                        <p><strong>Số Điện Thoại:</strong> ${order.phone}</p>
+                        <p><strong>Chi Tiết Đơn Hàng:</strong></p>
+                        <ul>
+                            ${order.invoiceItems.map(item => `
+                                <li>${item.name} - Số lượng: ${item.quantity} - Giá: ${item.price}đ</li>
+                            `).join('')}
+                        </ul>
+                        <p><strong>Tổng Tiền:</strong> ${order.totalPrice}đ</p>
+                    </div>
+                    <button onclick="deleteOrder(${index})">Xóa</button>
+                `;
+                orderItemsList.appendChild(li);
+            });
+        } else {
+            document.getElementById('error-message').textContent = "Không có đơn hàng nào!";
+        }
+
+        // Hàm xóa đơn hàng
+        function deleteOrder(index) {
+            orders.splice(index, 1); // Xóa đơn hàng tại vị trí index
+            localStorage.setItem('orders', JSON.stringify(orders)); // Cập nhật lại localStorage
+            alert("Đơn hàng đã được xóa!");
+            location.reload(); // Tải lại trang để cập nhật danh sách
+        }
+    </script>
+</body>
+</html>

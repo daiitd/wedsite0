@@ -1,117 +1,410 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOTTE MART</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset CSS */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: yellowgreen;
+        }
+
+        /* Header */
         header {
+            background: #222;
+            color: aqua;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: red;
-            color: white;
-            padding: 10px 20px;
+            flex-wrap: wrap;
         }
-        nav ul {
-            list-style: none;
+
+        .header-left, .header-right {
             display: flex;
-            padding: 0;
+            align-items: center;
+            flex-wrap: wrap;
         }
-        nav ul li {
+
+        .header-left a, .header-right a {
+            color: aqua;
+            text-decoration: none;
             margin: 0 10px;
-            cursor: pointer;
+            font-size: 14px;
         }
-        .banner {
+
+        .header-right img {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+
+        .search-box {
+            padding: 5px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #f0b45b;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            margin: auto;
+            background: paleturquoise;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
-            background: lightgreen;
-            width: 100%;
-            height: 300px;
+            padding: 20px;
+        }
+
+        .hero img {
+            width: 150px;
+            height: auto;
+        }
+
+        .buttons {
             display: flex;
             justify-content: center;
-            align-items: center;
+            flex-wrap: wrap;
         }
-        .banner img {
+
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            color: rgb(204, 235, 132);
+            font-size: 16px;
+            background-color: #333;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .buttons button:hover {
+            background-color: rgb(204, 235, 132);
+            color: #333;
+            box-shadow: 0 0 10px rgb(204, 235, 132);
+        }
+
+        .buttons button:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 5px rgb(204, 235, 132);
+        }
+
+        .buttons button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(253, 19, 19, 0.5);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .buttons button:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .btn-primary { background: #ff6f00; }
+        .btn-secondary { background: #0277bd; }
+        .btn-tertiary { background: #2e7d32; }
+
+        /* Products Section */
+        .products {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background: rgb(187, 252, 214);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .product img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            border-radius: 5px;
+            height: auto;
         }
-        .categories {
+
+        .product h3 {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .product p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Button Group */
+        .button-group {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin: 20px 0;
+            margin-top: 10px;
         }
-        .products {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            padding: 20px;
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
         }
-        .product {
+
+        .buy-button {
+            background: red;
+        }
+
+        .buy-button:hover {
+            background: #ff4500;
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.7);
+        }
+
+        .cart-button {
+            background: #008CBA;
+        }
+
+        .cart-button:hover {
+            background: #007bb5;
+            box-shadow: 0 0 10px rgba(0, 140, 186, 0.7);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
-            width: 200px;
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 20px;
+            background: #222;
+            color: aqua;
+            margin-top: 20px;
         }
-        .product img {
-            width: 100%;
-            height: auto;
+
+        footer a {
+            color: aqua;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .header-left, .header-right {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header-left a, .header-right a {
+                margin: 5px 0;
+            }
+
+            .search-box {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .buttons button {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .products {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product {
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">LOTTE MART</div>
-        <input type="text" placeholder="Tìm kiếm...">
-        <div class="cart-icon">🛒</div>
+        <div class="header-left">
+            <a href="index.html">Trang chủ</a>
+            <a href="index.html">Giới thiệu</a>
+            <a href="message.html">Sản phẩm</a>
+            <a href="account.html">Quản trị Admin</a>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="header-right">
+            <a href="account.html">Đăng nhập</a>
+            <a href="#">Thông báo</a>
+            <a href="customer_view.html">Giỏ hàng</a>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li>Danh Mục</li>
-            <li>Ưu Đãi</li>
-            <li>Giao Đồ Ăn</li>
-            <li>Bán Chạy</li>
-            <li>Đồ Chay</li>
-        </ul>
-    </nav>
-    <section class="banner">
-        <img src="weds.PNG" alt="Khuyến mãi lớn">
-    </section>
-    <section class="categories">
-        <button>Trái Cây</button>
-        <button>Rau Lá</button>
-        <button>Sữa Hạt</button>
-        <button>Bánh Tươi</button>
-    </section>
-    <section class="products">
+    <div class="products">
         <div class="product">
-            <img src="apple.jpg" alt="Táo Envy Mỹ">
-            <p>Táo Envy Mỹ 1kg</p>
-            <span>209.000₫</span>
+            <img src="kemhau.png" alt="Kem dưa hấu">
+            <h3>Kem dưa hấu</h3>
+            <p>Giá: 59.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
         </div>
         <div class="product">
-            <img src="strawberry.jpg" alt="Dâu Tây Hàn Quốc">
-            <p>Dâu Tây Hàn Quốc 500g</p>
-            <span>339.000₫</span>
+            <img src="kemdua.jpg" alt="Kem dừa">
+            <h3>Kem dừa</h3>
+            <p>Giá: 49.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
         </div>
         <div class="product">
-            <img src="grape.jpg" alt="Nho Đỏ Không Hạt">
-            <p>Nho Đỏ Không Hạt 600G</p>
-            <span>95.400₫</span>
+            <img src="kemsau.jpg" alt="Kem sầu riêng">
+            <h3>Kem sầu riêng</h3>
+            <p>Giá: 39.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
         </div>
         <div class="product">
-            <img src="tessa_apple.jpg" alt="Táo Tessa Hà Lan">
-            <p>Táo Tessa Hà Lan 1kg</p>
-            <span>89.000₫</span>
+            <img src="kemdau.jpeg" alt="Kem socola">
+            <h3>Kem socola</h3>
+            <p>Giá: 33.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
         </div>
-    </section>
+        <div class="product">
+            <img src="kemkhoai.jpg" alt="Kem khoai môn">
+            <h3>Kem khoai môn</h3>
+            <p>Giá: 33.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="kemvani.jpg" alt="Kem vani">
+            <h3>Kem vani</h3>
+            <p>Giá: 22.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>  
+        </div>
+        <div class="product">
+            <img src="apple.jpg" alt="Kem vani">
+            <h3>Táo Mỹ Nhập Khẩu</h3>
+            <p>Giá: 150.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="quyt.jpg" alt="Kem vani">
+            <h3>Quýt Nhập Khẩu Hàn Quốc</h3>
+            <p>Giá: 150.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="saurieng.jpg" alt="Kem vani">
+            <h3>Sầu Riêng Việt</h3>
+            <p>Giá: 220.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="nho.jpg" alt="Kem vani">
+            <h3>Nho Nhập Khẩu Thái Lan</h3>
+            <p>Giá: 250.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="case1.jpg" alt="Kem vani">
+            <h3>Bánh Kem Dâu</h3>
+            <p>Giá: 330.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="case2.jpg" alt="Kem vani">
+            <h3>Kem vani</h3>
+            <p>Giá: 290.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="case3.jpg" alt="Kem vani">
+            <h3>Bánh Kem Trái Cây</h3>
+            <p>Giá: 340.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="case4.jpg" alt="Kem vani">
+            <h3>Bánh Kem Socola</h3>
+            <p>Giá: 230.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+        <div class="product">
+            <img src="case5.jpeg" alt="Kem vani">
+            <h3>Bánh Kem Bông</h3>
+            <p>Giá: 200.000 VNĐ</p>
+            <div class="button-group">
+                <a href="buy.html" class="button buy-button">Mua ngay</a>
+                <a href="buy.html" class="button cart-button">Thêm vào giỏ hàng</a>
+            </div>
+        </div>
+
+        
+    </div>
 </body>
 </html>

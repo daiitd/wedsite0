@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập Thông Tin Khách Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #98FF98;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .customer-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .customer-info h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .customer-info label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .customer-info input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .customer-info button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .customer-info button:hover {
+            background: red;
+        }
+
+        .success-message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="customer-info">
+        <h2>Nhập Thông Tin Khách Hàng</h2>
+        <label for="name">Họ và Tên:</label>
+        <input type="text" id="name" required>
+
+        <label for="address">Địa Chỉ:</label>
+        <input type="text" id="address" required>
+
+        <label for="phone">Số Điện Thoại:</label>
+        <input type="text" id="phone" required>
+
+        <button onclick="submitOrder()">Xác Nhận Đặt Hàng</button>
+        <div id="success-message" class="success-message"></div>
+    </div>
+
+    <script>
+            function submitOrder() {
+        const name = document.getElementById('name').value;
+        const address = document.getElementById('address').value;
+        const phone = document.getElementById('phone').value;
+
+        const orderInfo = {
+            name,
+            address,
+            phone,
+            invoiceItems: JSON.parse(localStorage.getItem('invoiceItems')),
+            totalPrice: localStorage.getItem('totalPrice')
+        };
+
+        // Lấy danh sách đơn hàng hiện tại từ localStorage
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+        // Thêm đơn hàng mới vào danh sách
+        orders.push(orderInfo);
+
+        // Lưu danh sách đơn hàng mới vào localStorage
+        localStorage.setItem('orders', JSON.stringify(orders));
+
+        // Hiển thị thông báo "Đặt hàng thành công"
+        document.getElementById('success-message').textContent = "Đặt hàng thành công!";
+
+        // Chuyển hướng về trang chủ sau 2 giây
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000);
+    }
+    </script>
+</body>
+</html>
