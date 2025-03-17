@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Báo Đơn Hàng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #222;
+            color: aqua;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left a, .header-right a {
+            color: aqua;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .order-item {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-item p {
+            margin: 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .order-item .order-date {
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: aqua;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: aqua;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left, .header-right {
+                flex-direction: column;
+                align-items: center;
+                margin: 10px 0;
+            }
+
+            .header-left a, .header-right a {
+                margin: 5px 0;
+                font-size: 16px; /* Tăng kích thước font cho dễ đọc trên điện thoại */
+            }
+
+            .container {
+                width: 95%; /* Rộng hơn để phù hợp với màn hình nhỏ */
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px; /* Giảm kích thước tiêu đề */
+            }
+
+            .order-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+
+            .order-item p {
+                margin: 5px 0;
+                font-size: 14px; /* Giảm kích thước font cho phù hợp */
+            }
+
+            .order-item .order-date {
+                margin-top: 10px; /* Thêm khoảng cách giữa các phần tử */
+            }
+
+            footer {
+                padding: 15px;
+            }
+
+            footer p {
+                font-size: 14px; /* Giảm kích thước font chân trang */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header-left a, .header-right a {
+                font-size: 14px; /* Giảm kích thước font cho màn hình rất nhỏ */
+            }
+
+            h1 {
+                font-size: 20px; /* Tiêu đề nhỏ hơn */
+            }
+
+            .order-item p {
+                font-size: 12px; /* Font nhỏ hơn cho màn hình rất nhỏ */
+            }
+
+            footer p {
+                font-size: 12px; /* Font chân trang nhỏ hơn */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html">Trang chủ</a>
+            <a href="index1.html">Giới thiệu</a>
+            <a href="message.html">Sản phẩm</a>
+            <a href="admin.html">Quản trị Admin</a>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="header-right">
+            <a href="account.html">Đăng nhập</a>
+            <a href="thongbao.html">Thông báo</a>
+            <a href="buy.html">Mua sắm</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Thông Báo Đơn Hàng</h1>
+        <div id="order-list">
+            <!-- Đơn hàng sẽ được hiển thị ở đây -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 P.Đại IT. Bản quyền được bảo lưu</p>
+        <p>&copy;Thông tin wed developer <a href="https://github.com/daiitd/phuongdai-IT">phuongdaiIT.com</a></p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const orders = [
+                { id: 1, items: ["Kem dưa hấu", "Kem dừa"], total: "59.000 VNĐ" },
+                { id: 2, items: ["Kem sầu riêng", "Kem vani"], total: "39.000 VNĐ" },
+                { id: 3, items: ["Kem socola", "Kem khoai môn"], total: "33.000 VNĐ" }
+            ];
+
+            const orderList = document.getElementById("order-list");
+
+            orders.forEach(order => {
+                const orderItem = document.createElement("div");
+                orderItem.classList.add("order-item");
+
+                const orderDetails = document.createElement("div");
+                orderDetails.innerHTML = `
+                    <p><strong>Đơn hàng #${order.id}</strong></p>
+                    <p>Sản phẩm: ${order.items.join(", ")}</p>
+                    <p>Tổng cộng: ${order.total}</p>
+                `;
+
+                const orderDate = document.createElement("p");
+                orderDate.classList.add("order-date");
+                orderDate.textContent = `Ngày đặt: ${getCurrentDate()}`;
+
+                orderItem.appendChild(orderDetails);
+                orderItem.appendChild(orderDate);
+                orderList.appendChild(orderItem);
+            });
+
+            function getCurrentDate() {
+                const now = new Date();
+                const day = String(now.getDate()).padStart(2, '0');
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // Tháng bắt đầu từ 0
+                const year = now.getFullYear();
+                return `${day}/${month}/${year}`;
+            }
+        });
+    </script>
+</body>
+</html>
